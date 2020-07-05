@@ -5,6 +5,8 @@ import { CommonContext } from '../../context/common';
 import RecognitionService from '../../services/Recognition';
 import { isCorrectWord } from '../../lib/util';
 
+import './style.scss';
+
 const Human = ({ setPlay }) => {
   const [state, dispatch] = useContext(CommonContext);
   const [seconds, setSeconds] = useState(8);
@@ -44,8 +46,8 @@ const Human = ({ setPlay }) => {
   }, [seconds]);
 
   return (
-    <div>
-      {seconds}
+    <div className="human-container">
+      <p className="timer">{seconds}</p>
     </div>
   );
 };

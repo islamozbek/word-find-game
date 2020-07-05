@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { CommonContext } from '../../context/common';
 
+import './style.scss';
+
 const PlayGame = ({ setPlay }) => {
   const [, dispatch] = useContext(CommonContext);
   const handlePlayGame = async () => {
@@ -15,7 +17,7 @@ const PlayGame = ({ setPlay }) => {
     }
   };
   return (
-    <button type="button" onClick={handlePlayGame}>Play Game</button>
+    <button type="button" className="play-game-button" onClick={handlePlayGame}>Play Game</button>
   );
 };
 
