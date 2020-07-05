@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+
 import { CommonContext } from '../../context/common';
 import SpeechService from '../../services/Speech';
 
-const Computer = () => {
+const Computer = ({ setPlay }) => {
   const [state, dispatch] = useContext(CommonContext);
   const [word, setWord] = useState('');
 
@@ -14,7 +16,7 @@ const Computer = () => {
         dispatch({ type: 'SET_WORDS', word: computerWord });
         dispatch({ type: 'SET_NEXT', next: 'human' });
       } else {
-        console.log('wrong Answer');
+        setPlay(false);
       }
     };
     if (state.next === 'computer') {
@@ -27,6 +29,10 @@ const Computer = () => {
       {word}
     </div>
   );
+};
+
+Computer.propTypes = {
+  setPlay: PropTypes.func.isRequired,
 };
 
 export default Computer;

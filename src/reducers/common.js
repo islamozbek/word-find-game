@@ -4,7 +4,7 @@ import Names from '../names.json';
 const initialState = {
   names: Names,
   words: [],
-  next: 'computer',
+  next: null,
 };
 
 const CommonReducer = () => {
@@ -19,6 +19,11 @@ const CommonReducer = () => {
         return {
           ...state,
           words: [...state.words, action.word],
+        };
+      case 'CLEAR_WORDS':
+        return {
+          ...state,
+          words: [],
         };
       default:
         return state;
